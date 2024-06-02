@@ -8,9 +8,6 @@ importers:
 
   .:
     dependencies:
-      '@langchain/anthropic':
-        specifier: ^0.2.0
-        version: 0.2.0(langchain@0.2.4(fast-xml-parser@4.4.0)(openai@4.47.3))(openai@4.47.3)
       '@langchain/core':
         specifier: ^0.2.5
         version: 0.2.5(langchain@0.2.4(fast-xml-parser@4.4.0)(openai@4.47.3))(openai@4.47.3)
@@ -35,9 +32,6 @@ importers:
         version: 1.6.0(@types/node@20.13.0)
 
 packages:
-
-  '@anthropic-ai/sdk@0.21.1':
-    resolution: {integrity: sha512-fqdt74RTdplnaFOYhwNjjK/Ec09Dqv9ekYr7PuC6GdhV1RWkziqbpJBewn42CYYqCr92JeX6g+IXVgXmq9l7XQ==}
 
   '@esbuild/aix-ppc64@0.20.2':
     resolution: {integrity: sha512-D+EBOJHXdNZcLJRBkhENNG8Wji2kgc9AZ9KiPr1JuZjsNtyHzrsfLRrY0tk2H2aoFu6RANO1y1iPPUCDYWkb5g==}
@@ -176,10 +170,6 @@ packages:
     engines: {node: '>=12'}
     cpu: [x64]
     os: [win32]
-
-  '@langchain/anthropic@0.2.0':
-    resolution: {integrity: sha512-G/3EhEhp43+SGMjdMEfbKeRGDFM+a8MvakF45V5epgNNrbhV8oRykUuV1lfz9VUdUPoE4fMpNISnPvv3hsP9WA==}
-    engines: {node: '>=18'}
 
   '@langchain/core@0.2.5':
     resolution: {integrity: sha512-tMaKRFVewFn8crQwlbXGjT7hlMdX1yXHap1ebBx7Bb2C3C9AeZ+sXbX11m27yamypNlVVegwUcisw3YCaDkZJA==}
@@ -756,19 +746,6 @@ packages:
 
 snapshots:
 
-  '@anthropic-ai/sdk@0.21.1':
-    dependencies:
-      '@types/node': 18.19.33
-      '@types/node-fetch': 2.6.11
-      abort-controller: 3.0.0
-      agentkeepalive: 4.5.0
-      form-data-encoder: 1.7.2
-      formdata-node: 4.4.1
-      node-fetch: 2.7.0
-      web-streams-polyfill: 3.3.3
-    transitivePeerDependencies:
-      - encoding
-
   '@esbuild/aix-ppc64@0.20.2':
     optional: true
 
@@ -837,18 +814,6 @@ snapshots:
 
   '@esbuild/win32-x64@0.20.2':
     optional: true
-
-  '@langchain/anthropic@0.2.0(langchain@0.2.4(fast-xml-parser@4.4.0)(openai@4.47.3))(openai@4.47.3)':
-    dependencies:
-      '@anthropic-ai/sdk': 0.21.1
-      '@langchain/core': 0.2.5(langchain@0.2.4(fast-xml-parser@4.4.0)(openai@4.47.3))(openai@4.47.3)
-      fast-xml-parser: 4.4.0
-      zod: 3.23.8
-      zod-to-json-schema: 3.23.0(zod@3.23.8)
-    transitivePeerDependencies:
-      - encoding
-      - langchain
-      - openai
 
   '@langchain/core@0.2.5(langchain@0.2.4(fast-xml-parser@4.4.0)(openai@4.47.3))(openai@4.47.3)':
     dependencies:
@@ -1027,6 +992,7 @@ snapshots:
   fast-xml-parser@4.4.0:
     dependencies:
       strnum: 1.0.5
+    optional: true
 
   form-data-encoder@1.7.2: {}
 
@@ -1206,7 +1172,8 @@ snapshots:
 
   source-map-js@1.2.0: {}
 
-  strnum@1.0.5: {}
+  strnum@1.0.5:
+    optional: true
 
   tr46@0.0.3: {}
 
