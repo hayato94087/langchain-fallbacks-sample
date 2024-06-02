@@ -2,7 +2,7 @@ import { ChatOpenAI } from "@langchain/openai";
 import 'dotenv/config'
 
 // モデル名が誤っている対話モデル
-const modelWithBackModelName = new ChatOpenAI({
+const modelWithBadModelName = new ChatOpenAI({
   model: "bad-model",
   temperature: 0,
   maxRetries: 0,
@@ -15,7 +15,7 @@ const modelWithCorrectModelName = new ChatOpenAI({
 });
 
 // フォールバックを追加
-const modelWithFallback = modelWithBackModelName.withFallbacks({
+const modelWithFallback = modelWithBadModelName.withFallbacks({
   fallbacks: [modelWithCorrectModelName],
 });
 
