@@ -1,10 +1,24 @@
-import { ChatAnthropic } from "@langchain/anthropic";
+import { ChatOpenAI } from "@langchain/openai";
 import 'dotenv/config'
 
-const model = new ChatAnthropic({
-  model: "claude-3-sonnet-20240229",
+// モデル名が誤っている対話モデル
+const modelWithBackModelName = new ChatOpenAI({
+  model: "bad-model",
+  temperature: 0,
+  maxRetries: 0,
+});
+
+// モデル名が正しい対話モデル
+const modelWithCorrectModelName = new ChatOpenAI({
+  model: "gpt-3.5-turbo",
   temperature: 0,
 });
 
-const result = await model.invoke("猫についてジョークを言ってください");
-console.log(result)
+// フォールバックを追加
+const modelWithFallback = modelWithBackModelName.withFallbacks({
+  fallbacks: [modelWithCorrectModelName],
+});
+
+// モデルを呼び出す
+const result = await modelWithFallback.invoke("あなたの名前は？");
+console.log(result);
